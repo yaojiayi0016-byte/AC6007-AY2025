@@ -21,6 +21,7 @@ def DbsPrediction():
     q = float(request.form.get("q"))
     model=joblib.load("dbs.jl")
     r = model.predict([[q]])
+    return(render_template("DbsPrediction.html",r=r))
     
 @app.route("/credit", methods=["GET","POST"])
 def credit():
